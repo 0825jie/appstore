@@ -12,6 +12,9 @@
 		F2D491ED2114CD9000B90B23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2D491EB2114CD9000B90B23 /* Main.storyboard */; };
 		F2D491EF2114CD9100B90B23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2D491EE2114CD9100B90B23 /* Assets.xcassets */; };
 		F2D491F22114CD9100B90B23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2D491F02114CD9100B90B23 /* LaunchScreen.storyboard */; };
+		F2D491FA2114D7E900B90B23 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D491F92114D7E900B90B23 /* CategoryCell.swift */; };
+		F2D491FC2114DE5E00B90B23 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D491FB2114DE5E00B90B23 /* Extension.swift */; };
+		F2D491FE21152C3200B90B23 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D491FD21152C3200B90B23 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		F2D491EE2114CD9100B90B23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2D491F12114CD9100B90B23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2D491F32114CD9100B90B23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2D491F92114D7E900B90B23 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		F2D491FB2114DE5E00B90B23 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		F2D491FD21152C3200B90B23 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				F2D491E72114CD9000B90B23 /* AppDelegate.swift */,
-				F2D491E92114CD9000B90B23 /* ViewController.swift */,
 				F2D491EB2114CD9000B90B23 /* Main.storyboard */,
 				F2D491EE2114CD9100B90B23 /* Assets.xcassets */,
 				F2D491F02114CD9100B90B23 /* LaunchScreen.storyboard */,
 				F2D491F32114CD9100B90B23 /* Info.plist */,
+				F2D491E92114CD9000B90B23 /* ViewController.swift */,
+				F2D491F92114D7E900B90B23 /* CategoryCell.swift */,
+				F2D491FB2114DE5E00B90B23 /* Extension.swift */,
+				F2D491FD21152C3200B90B23 /* Models.swift */,
 			);
 			path = Appstore;
 			sourceTree = "<group>";
@@ -137,6 +146,9 @@
 			files = (
 				F2D491EA2114CD9000B90B23 /* ViewController.swift in Sources */,
 				F2D491E82114CD9000B90B23 /* AppDelegate.swift in Sources */,
+				F2D491FA2114D7E900B90B23 /* CategoryCell.swift in Sources */,
+				F2D491FC2114DE5E00B90B23 /* Extension.swift in Sources */,
+				F2D491FE21152C3200B90B23 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
