@@ -9,6 +9,16 @@
 import UIKit
 
 class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+    
+    var featuredAppsController: FeaturedAppsController?
+    var appCategory: AppCategory? {
+        didSet {
+            if let name = appCategory?.name {
+                labelView.text = name
+            }
+            appsCollectionView.reloadData()
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -46,21 +56,26 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
       
         appsCollectionView.dataSource = self
         appsCollectionView.delegate = self
-//        backgroundColor = UIColor.red
         addSubview(appsCollectionView)
         addSubview(labelView)
         appsCollectionView.register(AppCell.self, forCellWithReuseIdentifier: cellId)
-        appsCollectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 24, left: 0, bottom: 0, right: 0), size: .init(width: 40, height: 40))
+        appsCollectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 24, left: 0, bottom: 0, right: 0), size: .zero)
         labelView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: nil, padding:.zero, size: .zero)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if let count = appCategory?.apps?.count {
+            return count
+        }
+        return 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppCell
+         cell.app = appCategory?.apps?[indexPath.item]
+        print("this is No.%f", indexPath.item)
         return cell
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -71,10 +86,32 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("apps selected!")
+        if let app = appCategory?.apps?[indexPath.item] {
+            print(indexPath.item)
+            featuredAppsController?.showAppDetailForApp(app: app)
+        }
+    }
+    
     
 }
 
 class AppCell : UICollectionViewCell{
+    
+    var app: App? {
+        didSet {
+            if let imageName = app?.imageName {
+                imageView.image = UIImage(named: imageName)
+            }
+            
+            if let name = app?.name {
+                infoView.text = name
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()

@@ -8,6 +8,11 @@
 
 import UIKit
 
+class FeaturedApps : NSObject{
+    var bannerCategory: AppCategory?
+    var appCategories: [AppCategory]?
+}
+
 class AppCategory: NSObject {
     var name: String?
     
@@ -24,6 +29,13 @@ class AppCategory: NSObject {
         frozenApp.category = "Game"
         frozenApp.price = 3.99
         apps.append(frozenApp)
+        
+        let frozenApp2 = App()
+        frozenApp2.name = "Cat Miu"
+        frozenApp2.imageName = "cat"
+        frozenApp2.category = "Game"
+        frozenApp2.price = 2.99
+        apps.append(frozenApp2)
         
         bestNewAppsCategory.apps = apps
         return [bestNewAppsCategory]

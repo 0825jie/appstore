@@ -11,10 +11,6 @@ import UIKit
 class FeaturedAppsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
-//    let collectionView : UICollectionView = {
-//         let cv = UICollectionView()
-//        return cv
-//    }()
     var appCategories : [AppCategory]?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +18,27 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     }
     
     func setupView(){
-//    view.addSubview(collectionView)
        collectionView?.backgroundColor = UIColor.white
        collectionView?.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
        appCategories = AppCategory.sampleAppCategories()
         
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected")
+    }
+    
+    func showAppDetailForApp(app: App){
+        let layout = UICollectionViewFlowLayout()
+        let appDetailController = AppDetailController(collectionViewLayout: layout)
+        appDetailController.app = app
+        navigationController?.pushViewController(appDetailController, animated: true)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)as! CategoryCell
+        cell.appCategory = appCategories?[indexPath.item]
+        cell.featuredAppsController = self
         return cell
     }
     
